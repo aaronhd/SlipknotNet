@@ -108,9 +108,9 @@ if __name__ == "__main__":
 
     print("model path: ", model_path)
     input_channels = 3
-    ggcnn = get_network(args.network)
+    slipknotnet = get_network(args.network)
     # print("input_channels: ", input_channels)
-    net = ggcnn(input_channels=input_channels)
+    net = slipknotnet(input_channels=input_channels)
 
     net.load_state_dict(torch.load(model_path))
 
