@@ -1,3 +1,3 @@
 # SlipknotNet
 
-Project Website: https://sites.google.com/view/slipknotnet/
+Project Website: https://sites.google.com/view/slipknotnet
