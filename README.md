@@ -1,4 +1,4 @@
-# SlipknotNet README
+# README
 
 # SlipknotNet
 
