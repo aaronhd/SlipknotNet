@@ -106,8 +106,6 @@ if __name__ == "__main__":
     args = parse_args()
 
     model_path = "checkpoint/2025-02-26_01-46-57_sutureresnet_/epoch_50" 
-    model_path = "checkpoint/2025-08-21_23-43-20_slipknotnet_/epoch_02" 
-    model_path = "checkpoint/2025-08-22_18-57-57_slipknotnet_/epoch_00" 
 
     print("model path: ", model_path)
     input_channels = 3
