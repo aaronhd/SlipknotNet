@@ -30,6 +30,7 @@ def parse_args():
     parser.add_argument(
         "--network", type=str, default="slipknotnet", help="Network Name in .models"
     )
+    parser.add_argument("--gpu", type=str, default="0", help="gpu used")
 
     args = parser.parse_args()
     return args
@@ -106,6 +107,7 @@ if __name__ == "__main__":
 
     model_path = "checkpoint/2025-02-26_01-46-57_sutureresnet_/epoch_50" 
     model_path = "checkpoint/2025-08-21_23-43-20_slipknotnet_/epoch_02" 
+    model_path = "checkpoint/2025-08-22_18-57-57_slipknotnet_/epoch_00" 
 
     print("model path: ", model_path)
     input_channels = 3
@@ -115,7 +117,8 @@ if __name__ == "__main__":
 
     net.load_state_dict(torch.load(model_path))
 
-    device = torch.device("cuda:0")
+    device = torch.device("cuda:" + args.gpu)
+
     net = net.to(device)
     net.eval()
     total_params = sum(p.numel() for p in net.parameters())
