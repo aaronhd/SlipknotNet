@@ -16,7 +16,7 @@ export SlipknotNet_FOLDER=/home/aaronsamd37/reading_PJ/SlipknotNet
 mkdir checkpoint data logging results
 ```
 
-# 1. create a virtual environment:
+# 1. Create a virtual environment:
 
 Tested on CUDA 11.8
 
