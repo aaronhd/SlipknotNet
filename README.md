@@ -1,4 +1,4 @@
-# SlipknotNet README
+# README
 
 # SlipknotNet
 
@@ -11,7 +11,7 @@ git clone https://github.com/aaronhd/SlipknotNet.git
 
 cd SlipknotNet
 
-export SlipknotNet_FOLDER=/home/aaronsamd37/reading_PJ/SlipknotNet
+export SlipknotNet_FOLDER=$HOME/code/PointNetGPD
 
 mkdir checkpoint data logging results
 ```
@@ -35,7 +35,7 @@ conda activate slipknotnet
 # 2. Download our [Davinci-sliputure Dataset](https://www.dropbox.com/scl/fi/czec2557tokjj6h86g9qe/Davinci-sliputure_Dataset.zip?rlkey=pzshhomii64px74ldr8upi4kx&st=lmqmhulv&dl=0)
 
 ```bash
-# unzip and move the downloaded datatset into ./data
+# Unzip and move the downloaded datatset into ./data
 ```
 
 # 3. Train SlipknotNet  model：
@@ -51,9 +51,12 @@ python train.py --network slipknotnet --dataset suture_line --dataset-path ./dat
 Our [pre-trained model](https://www.dropbox.com/scl/fi/ugwynsjjwblldihu0q04d/checkpoint.zip?rlkey=vqtpal6l2wl4kvsurrq5tywdl&st=8kshisul&dl=0) for testing is available.
 
 ```bash
-# unzip and move the downloaded checkpoint into ./checkpoint
+# Unzip and move the downloaded checkpoint into ./checkpoint
 
 python inference.py --network slipknotnet
 
 # The output is saved in ./results
+
+# Test on robotic system
+python davinci_slipknotnet_exp.py 
 ```
