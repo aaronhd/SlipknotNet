@@ -7,7 +7,11 @@ import glob
 import matplotlib.pyplot as plt
 import numpy as np
 import random
-from .illumination import random_illumination_augmentation
+
+try:
+    from .illumination import random_illumination_augmentation
+except ImportError:
+    from illumination import random_illumination_augmentation
 
 
 class ImageMaskDataset(Dataset):
@@ -19,7 +23,7 @@ class ImageMaskDataset(Dataset):
             transform (callable, optional): 可选的图像预处理操作。
             mask_transform (callable, optional): 可选的掩码预处理操作。
         """
-        print("davinci suture dataset")
+        print("Davinci-sliputure_Dataset")
         self.light_aug = light_aug
         self.data_path = data_path
         if image_list is None:
@@ -130,13 +134,15 @@ def rotate_image(image, max_angle=30, fill_color=0):
 
 
 if __name__ == "__main__":
-    data_path = "/media/aaronsamd37/hard_1/cao/labelled_data/suture_data"
-
+    # data_path = "/media/aaronsamd37/hard_1/cao/Davinci-sliputure_Dataset"
+    data_path = os.environ["SlipknotNet_FOLDER"] + "/data/Davinci-sliputure_Dataset"
+    print(data_path)
     # 创建数据集和数据加载器
-    dataset = ImageMaskDataset(data_path, start=0.0, end=0.9)
+    dataset = ImageMaskDataset(data_path, start=0.0, end=1.0, light_aug=True)
     # dataloader = DataLoader(
     #     dataset, batch_size=1, shuffle=True
     # )
-
-    image, mask = dataset.__getitem__(2)
+    id = random.randint(0, len(dataset))
+    print(id)
+    image, mask = dataset.__getitem__(id)
     show_image_and_mask(image, mask)
